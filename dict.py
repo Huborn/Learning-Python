@@ -23,4 +23,4 @@ user["balance"] = summ
 if summ >= 50000:
     user["status"] = "Гордый обладатель Poco"
 with open("py_dict.txt", "w", encoding="utf-8") as pringlse:
-    pringlse.write(f"Ваш баланс: {user["balance"]} \nСтатсус счёта:{user["status"]} \nДосвидания {user["name"]}")
+    pringlse.write(f"Ваш баланс: {user["balance"]} \nСтатсус счёта: {user["status"]} \nДо свидания {user["name"]}")
