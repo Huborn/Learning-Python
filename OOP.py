@@ -1,15 +1,38 @@
-client_name = "Kek"
-
+user_list = ["Loh", "Pidr", "Chmo"]
 class BankClient:
 
-    def __init__(self, client_name, client_status):
+    def __init__(self, client_name):
         self.name = client_name
-        self.status = client_status
+        self.status = "Loh"
         self.balance = 0
+    
+    def status_ch(self):
+        if self.balance >= 15000:
+            self.status = "Чушпан"
 
     def deposit(self, amount):
-        self.balance = self.balance + amount
+        self.balance += amount
+        self.status_ch()
+    
+user = BankClient(input("Имя своё скажи уебан\n"))
 
-answer = input("Что ты от меня хочешь?\n1. Посмотреть имя\n2. Посмотреть статус\n3. Посмотреть баланс\n4. Пополнить счёт")
-if answer == 1:
-     print(f"Ваше имя {client_name.name}")
+while True:
+    answer = int(input("""Что ты от меня хочешь?
+1. Посмотреть имя
+2. Посмотреть статус
+3. Посмотреть баланс
+4. Пополнить счёт
+5. Выход\n"""))
+    
+    if answer == 1:
+        print(f"Ваше имя {user.name}")
+    elif answer == 2:
+        print(f"Ваш статус {user.status}")
+    elif answer == 3:
+        print(f"Ваш баланс {user.balance}")
+    elif answer == 4:
+        user.deposit(int(input("Сколько?\n")))
+    elif answer == 5:
+        break
+    else:
+        print("Ебанутый")
