@@ -31,7 +31,8 @@ while True:
     
     interact = input("""Изменить или узнать?
 1.Изменить
-2.Узнать\n""")
+2.Узнать
+3.Выход\n""")
 
     if interact == "1":
         answer0 = input("""Что хочешь именить
@@ -42,17 +43,22 @@ while True:
             ch_phone(input("Что за устройство\n"))
         elif answer0 == "2":
             if input("1.Снять\n2.Внести\n") == "1":
-                ch_balance_minus(int(input("Сумма:\n")))
+                ss = int(input("Сумма:\n"))
+                if user_name["balance"] - ss < 0:
+                    print("Недостаточно средств")
+                else:
+                    ch_balance_minus(ss)
             else:
-                ch_balance_plus(int(input("Сумма:\n")))
-
+                ch_balance_plus(ss)
+       
     elif interact == "2":
         answer = input("""Что хотите узнать?
 1.Имя
 2.Устройство
 3.Баланс
 4.Статус
-5.Вывести всё\n""")
+5.Вывести всё
+6.Выход\n""")
 
         if answer == "1":
             print(f"Ваше имя: {login}")
@@ -65,7 +71,11 @@ while True:
         elif answer == "5":
             for key, volume in user_name.items():
                 print(f"{key} {volume}")
+        elif answer == "6":
+            break
 
     if user_name == None:
         print("Пользователь не найден")
         break
+    elif interact == "3":
+            break
