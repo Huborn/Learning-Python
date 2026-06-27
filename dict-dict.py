@@ -7,9 +7,6 @@ hui_db = {
 login = input("Добро пожаловать в список уебанов\nВведите имя пользователя\n").strip().lower()
 user_name = hui_db.get(login)
 
-
-        
-
 def ch_balance_plus (a):
     user_name["balance"] += a
     ch_status()
@@ -53,9 +50,10 @@ while True:
                 ss = int(input("Сумма:\n"))
                 if user_name["balance"] - ss < 0:
                     print("Недостаточно средств")
-                else:
+                else: 
                     ch_balance_minus(ss)
             else:
+                ss = int(input("Сумма:\n"))
                 ch_balance_plus(ss)
        
     elif interact == "2":
