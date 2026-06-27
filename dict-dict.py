@@ -4,6 +4,12 @@ hui_db = {
     "shluha": {"device": "iPhone", "balance": 50000, "status": "sosunia"}
 }
 
+login = input("Добро пожаловать в список уебанов\nВведите имя пользователя\n").strip().lower()
+user_name = hui_db.get(login)
+
+
+        
+
 def ch_balance_plus (a):
     user_name["balance"] += a
     ch_status()
@@ -24,10 +30,11 @@ def ch_status():
 def ch_phone(phone):
     user_name["device"] = phone
 
-login = input("Добро пожаловать в список уебанов\nВведите имя пользователя\n").strip().lower()
-user_name = hui_db.get(login)
-
 while True:
+
+    if user_name == None:
+        print("Пользователь не найден")
+        break
     
     interact = input("""Изменить или узнать?
 1.Изменить
@@ -74,8 +81,5 @@ while True:
         elif answer == "6":
             break
 
-    if user_name == None:
-        print("Пользователь не найден")
-        break
     elif interact == "3":
             break
