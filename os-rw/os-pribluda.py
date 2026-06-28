@@ -5,7 +5,7 @@ files = os.path.join(root_dir, "log")
 archive = os.path.join(root_dir, "arhive")
 
 def init_enviroment(root_dir):
-    if os.path.isdir(root_dir) == False:
+    if not os.path.isdir(root_dir):
         os.mkdir(root_dir)
         os.mkdir(archive)
 
